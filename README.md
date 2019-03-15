@@ -50,6 +50,7 @@ To deactivate an active environment, use: ```source deactivate```
 ### 3. Download platypus-variant into my environment
 The platypus-variant works (https://anaconda.org/bioconda/platypus-variant)
 The other platypus that can be downloaded, however does not work for some reason. They look like the same package and have the same options, but platypus does not work, while platypus-variant does wor. 
+
 a. ```conda install -c bioconda platypus-variant```
 
 b. Platypus also requires virtualenv
@@ -64,6 +65,7 @@ A list will appear that will have the name, version, build, and channel
 ### 4. Test run platypus on a subset of data in the command line
 a. To run platypus on a small dataset, I have a smaller file to test on:
 ADL06.sorted.sub.bam
+
 b. Call to run platypus
 ```platypus callVariants --bamFiles=ADL06.sorted.sub.bam --refFile=/pub/joannlp/EcoEvo283/Bioinformatics_Course/ref/dmel-all-chromosome-r6.13.fasta --output=ADL06.sorted.sub.bam.variant_calls.vcf```
 
