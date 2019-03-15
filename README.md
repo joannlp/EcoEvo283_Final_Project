@@ -9,7 +9,7 @@ To avoid interferences between the newer version of miniconda and python and the
 First, Go into /data/modulefiles/user_contributed_software/joannlp
 Create new folder: mkdir miniconda2
 Make file within folder, name it 2: 
-
+```
 #%Module1.0
 
 module-whatis "Joann's miniconda2 installation"
@@ -24,7 +24,7 @@ prepend-path    PATH               $ROOT/bin
 prepend-path -d " "   LDFLAGS           "-L${ROOT}/lib"
 prepend-path -d " "   CPPFLAGS          "-I$ROOT/include"
 prepend-path          INCLUDE           "$ROOT/include"
-
+```
 Second, Go into: /data/apps/user_contributed_software/joannlp
 Make new directory miniconda2. Within that folder, 
 Wget https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh
@@ -41,14 +41,14 @@ To look at your list of environments, conda env list
 
 To make a new environment, conda create –n SNP_caller python=2.7
 
-# To activate this environment, use:
-# > source activate SNP_caller
-#
-# To deactivate an active environment, use:
-# > source deactivate
+To activate this environment, use:
+> source activate SNP_caller
+
+To deactivate an active environment, use:
+> source deactivate
 
 The platypus-variant works
-# https://anaconda.org/bioconda/platypus-variant
+https://anaconda.org/bioconda/platypus-variant
 conda install -c bioconda platypus-variant
 
 Platypus also requires virtualenv
@@ -110,7 +110,7 @@ conda install bowtie2=2.2.7
 
 Write a shell script to run platypus:
 ###test run for my conda environment for calling variants with platypus
-
+```
 #!/bin/bash
 #$ -N platypus_test
 #$ -q bio,abio,free*i
@@ -135,18 +135,19 @@ source activate SNP_caller
 
 #basic script for platypus. there are other specialized options
 platypus callVariants --bamFiles=${workingdor}/${prefix}.sorted.bam --refFile=${ref} --output=${workingdir}/${prefix}.platypus.vcf --logFileName=platypus.log.txt --genSNPs=1 --genIndels=1 --minBaseQual=20 --maxVariants=8
-
+```
 The output file is: ADL06_1.platypus.vcf
 
 To host it online to upload onto the UCSC genome browser, you first have to make it readable or accessible to the internet. Note, the file path also has to be accessible. In order to do that, (instructions here: https://hpc.oit.uci.edu/sharing-data) 
 
-chmod a+r ADL06_1.platypus.vcf
+```chmod a+r ADL06_1.platypus.vcf```
 
 Next, link your file to this directory and it will be hosted at the website below.  
 
+```
 cd /pub/public-www/joannlp
 ln -s /pub/joannlp/EcoEvo283/Bioinformatics_Course/A4/DNA/ADL06_1.platypus.vcf ADL06_1.platypus.vcf
-
+```
 To access the file, 
 http://hpc.oit.uci.edu/~joannlp/ADL06_1.platypus.vcf
 
