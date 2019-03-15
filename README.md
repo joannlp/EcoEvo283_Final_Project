@@ -3,13 +3,13 @@
 The goal of my final project is to create a conda environment for calling variants on DNA sequencing data. The program I will be using is platypus-variant. In the first part of the course, we downloaded miniconda3 onto our HPC accounts. Miniconda3 relies on Python3. However, based on one of the platypus manuals online (https://rahmanteamdevelopment.github.io/Platypus/documentation.html), only python version 2.7 is currently supported. To avoid interferences between the newer version of miniconda and python and the older versions, I deleted miniconda3 and downloaded miniconda2 with a python 2.7 environment. 
 
 ## Here is a list of jobs I needed to accomplish:
-### 1. Download the correct miniconda based on the correct python for running platypus-variant (miniconda2)
-### 2. Create a conda environment
-### 3. Download platypus-variant into my environment
-### 4. Test run platypus on a subset of data in the command line
-### 5. Write a script to run platypus on a larger set of data
-### 6. Host my vcf file onto the HPC website
-### 7. Upload the hosted vcf file onto UCSC Genome Browser
+* 1. Download the correct miniconda based on the correct python for running platypus-variant (miniconda2)
+* 2. Create a conda environment
+* 3. Download platypus-variant into my environment
+* 4. Test run platypus on a subset of data in the command line
+* 5. Write a script to run platypus on a larger set of data
+* 6. Host my vcf file onto the HPC website
+* 7. Upload the hosted vcf file onto UCSC Genome Browser
 
 ## Here are the steps I took to accomplish these tasks:
 ### 1. Download the correct miniconda based on the correct python for running platypus-variant (miniconda2)
@@ -71,9 +71,13 @@ Output files: ADL06.sorted.sub.bam.variant_calls.vcf
 
 c. Now, to install other packages that are used to run the snp calling pipeline. 
 Packages we have used include:
+
 bwa/0.7.8 ```conda install bwa=0.7.8```
+
 samtools/1.3 ```conda install samtools=1.3```
+
 bcftools/1.3 ```conda install bcftools=1.3```
+
 bowtie2/2.2.7 ```conda install bowtie2=2.2.7```
 
 ### 5. Write a script to run platypus on a larger set of data
