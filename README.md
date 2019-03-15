@@ -2,17 +2,17 @@
 
 The goal of my final project is to create a conda environment for calling variants on DNA sequencing data. The program I will be using is platypus-variant. In the first part of the course, we downloaded miniconda3 onto our HPC accounts. Miniconda3 relies on Python3. However, based on one of the platypus manuals online (https://rahmanteamdevelopment.github.io/Platypus/documentation.html), only python version 2.7 is currently supported. To avoid interferences between the newer version of miniconda and python and the older versions, I deleted miniconda3 and downloaded miniconda2 with a python 2.7 environment. 
 
-##Here is a list of jobs I needed to accomplish:
-###1. Download the correct miniconda based on the correct python for running platypus-variant (miniconda2)
-###2. Create a conda environment
-###3. Download platypus-variant into my environment
-###4. Test run platypus on a subset of data in the command line
-###5. Write a script to run platypus on a larger set of data
-###6. Host my vcf file onto the HPC website
-###7. Upload the hosted vcf file onto UCSC Genome Browser
+## Here is a list of jobs I needed to accomplish:
+### 1. Download the correct miniconda based on the correct python for running platypus-variant (miniconda2)
+### 2. Create a conda environment
+### 3. Download platypus-variant into my environment
+### 4. Test run platypus on a subset of data in the command line
+### 5. Write a script to run platypus on a larger set of data
+### 6. Host my vcf file onto the HPC website
+### 7. Upload the hosted vcf file onto UCSC Genome Browser
 
-##Here are the steps I took to accomplish these tasks:
-###1. Download the correct miniconda based on the correct python for running platypus-variant (miniconda2)
+## Here are the steps I took to accomplish these tasks:
+### 1. Download the correct miniconda based on the correct python for running platypus-variant (miniconda2)
 a. First, Go into /data/modulefiles/user_contributed_software/joannlp. Create new folder: mkdir miniconda2. Make file within folder, name it 2: 
 ```
 #%Module1.0
@@ -41,13 +41,13 @@ If I put it in the miniconda2 folder, it did not let me and printed an error so 
 d. To call, ```module load joannlp/miniconda2```
 
 
-###2. Create a conda environment
+### 2. Create a conda environment
 a. To look at your list of environments, ```conda env list``` 
 To make a new environment, ```conda create –n SNP_caller python=2.7```
 To activate this environment, use: ```source activate SNP_caller```
 To deactivate an active environment, use: ```source deactivate```
 
-###3. Download platypus-variant into my environment
+### 3. Download platypus-variant into my environment
 The platypus-variant works (https://anaconda.org/bioconda/platypus-variant)
 The other platypus that can be downloaded, however does not work for some reason. They look like the same package and have the same options, but platypus does not work, while platypus-variant does wor. 
 a. ```conda install -c bioconda platypus-variant```
@@ -61,7 +61,7 @@ To check to see if it is downloaded to my environment, ```conda list –n SNP_ca
 To search for packages to install, ```conda search program_name``` (for example bwa)
 A list will appear that will have the name, version, build, and channel 
 
-###4. Test run platypus on a subset of data in the command line
+### 4. Test run platypus on a subset of data in the command line
 a. To run platypus on a small dataset, I have a smaller file to test on:
 ADL06.sorted.sub.bam
 b. Call to run platypus
@@ -76,7 +76,7 @@ samtools/1.3 ```conda install samtools=1.3```
 bcftools/1.3 ```conda install bcftools=1.3```
 bowtie2/2.2.7 ```conda install bowtie2=2.2.7```
 
-###5. Write a script to run platypus on a larger set of data
+### 5. Write a script to run platypus on a larger set of data
 Write a shell script to run platypus:
 ###test run for my conda environment for calling variants with platypus
 ```
@@ -107,7 +107,7 @@ platypus callVariants --bamFiles=${workingdor}/${prefix}.sorted.bam --refFile=${
 ```
 The output file is: ADL06_1.platypus.vcf
 
-###6. Host my vcf file onto the HPC website
+### 6. Host my vcf file onto the HPC website
 a. To host it online to upload onto the UCSC genome browser, you first have to make it readable or accessible to the internet. Note, the file path also has to be accessible. In order to do that, (instructions here: https://hpc.oit.uci.edu/sharing-data) 
 
 ```chmod a+r ADL06_1.platypus.vcf```
@@ -121,7 +121,7 @@ ln -s /pub/joannlp/EcoEvo283/Bioinformatics_Course/A4/DNA/ADL06_1.platypus.vcf A
 To access the file, 
 http://hpc.oit.uci.edu/~joannlp/ADL06_1.platypus.vcf
 
-###7. Upload the hosted vcf file onto UCSC Genome Browser
+### 7. Upload the hosted vcf file onto UCSC Genome Browser
 Go to the UCSC genome browser for D. melanogaster, add custom tracks, insert the link.
 
 My test run was just on one sample, however you can input a list of bam files that will output one vcf file. 
