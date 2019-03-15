@@ -28,6 +28,4 @@ source activate SNP_caller
 #/data/apps/user_contributed_software/joannlp/miniconda2/2/envs/SNP_caller/share/platypus-variant-0.8.1.2-0/
 #Instead of running one bam file at a time, you could input a list of bam files separated by comma and will result in one vcf file
 
-platypus callVariants --bamFiles=${workingdir}/${prefix}.sorted.bam --refFile=${ref} --output=${workingd
-ir}/${prefix}.platypus.vcf --logFileName=platypus.log.txt --genSNPs=1 --genIndels=1 --minBaseQual=20 --m
-axVariants=8
+platypus callVariants --bamFiles=${workingdir}/${prefix}.sorted.bam --refFile=${ref} --output=${workingdir}/${prefix}.platypus.vcf --logFileName=platypus.log.txt --genSNPs=1 --genIndels=1 --minBaseQual=20 --maxVariants=8
